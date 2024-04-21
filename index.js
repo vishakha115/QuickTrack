@@ -1,15 +1,80 @@
-// The following code starts Mock Service Worker tool which allows you to simulate a backend (an API) for building your apps that talk to a remote service. You can visit https://mswjs.io for details on this utility and check src/api/routes.js for a sample API route that you can edit/create as needed to simulate a real world API. This simulated backend will not be part of the completed application (built edition) and you must use a real world backend built using Node.js + Express or Java + Spring Boot to provide such a service.
+ let timerInterval;
+let seconds = 0;
+let minutes = 0;
+let hours = 0;
+let tasks = [];
 
-// If you do not require a simulated backend, you can remove the code shown below.
-
-const apiStatus = document.querySelector('#api-status');
-
-if (import.meta.env.DEV) {
-  import('../api/browser')
-    .then(({ worker }) => worker.start())
-    .then(() => fetch('/'))
-    .then((res) => res.json())
-    .then((res) => (apiStatus.innerText = res.message));
+function startTimer() {
+    const taskInput = document.getElementById("taskInput").value.trim();
+    if (taskInput === "") {
+        alert("Please enter a task description.");
+        return;
+    }
+    document.getElementById("startButton").disabled = true;
+    document.getElementById("stopButton").disabled = false;
+    timerInterval = setInterval(updateTimer, 1000);
 }
 
+function stopTimer() {
+    document.getElementById("startButton").disabled = false;
+    document.getElementById("stopButton").disabled = true;
+    clearInterval(timerInterval);
+    storeTask();
+    resetTimer();
+    displayTasks();
+}
 
+function storeTask() {
+    const taskInput = document.getElementById("taskInput").value.trim();
+    const time = formatTime(hours) + ":" + formatTime(minutes) + ":" + formatTime(seconds);
+    const currentDate = new Date().toLocaleDateString();
+    tasks.push({ description: taskInput, time: time, date: currentDate });
+    document.getElementById("taskInput").value = "";
+}
+
+function displayTasks() {
+    const taskList = document.getElementById("taskList");
+    taskList.innerHTML = "";
+    tasks.forEach((task, index) => {
+        const taskItem = document.createElement("div");
+        taskItem.classList.add("task-item");
+        taskItem.innerHTML = `
+            <div class="task-info">
+                <div class="task-description">${task.description}</div>
+                <div class="task-date">${task.date}</div>
+                <div class="task-time">${task.time}</div>
+            </div>
+            <span class="delete-icon" onclick="deleteTask(${index})">&#10006;</span>
+        `;
+        taskList.appendChild(taskItem);
+    });
+}
+
+function deleteTask(index) {
+    tasks.splice(index, 1);
+    displayTasks();
+}
+
+function resetTimer() {
+    seconds = 0;
+    minutes = 0;
+    hours = 0;
+    document.getElementById("timer").textContent = "00:00:00";
+}
+
+function updateTimer() {
+    seconds++;
+    if (seconds === 60) {
+        seconds = 0;
+        minutes++;
+        if (minutes === 60) {
+            minutes = 0;
+            hours++;
+        }
+    }
+    document.getElementById("timer").textContent = formatTime(hours) + ":" + formatTime(minutes) + ":" + formatTime(seconds);
+}
+
+function formatTime(time) {
+    return time < 10 ? "0" + time : time;
+}
