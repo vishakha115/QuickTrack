@@ -8,6 +8,7 @@ It has features like data visualization which lets you visualize your own tracke
 
 
 ->Credits
+
 Images - 
 Content - 
 Icons - 
@@ -19,7 +20,8 @@ CSS
 JavaScript
 
 
-Usage
+Usage                   
+
 Clone it to your directory and open the home page.
 
 Click on sign up and input anything you wish since its a dummy page and only needs the inputs to be filled.
