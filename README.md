@@ -1,18 +1,9 @@
-#QuickTrack is a time tracking app inspired by the Clockify web app. This was built as a project for hackathon by Upgrad Students.
+#uickTrack is a time tracking app inspired by the Clockify web app. This was built as a project for hackathon by Upgrad Students.
 
-
-Features
+->Features
 This app lets you add project name, description and tracks time as well.
 The data is stored in local storage so you can revisit your tracked projects anytime you wish.
 It has features like data visualization which lets you visualize your own tracked data and gives insights such as most productive or least productive day and so on.
-
-
-->Credits
-
-Images - 
-Content - 
-Icons - 
-References -
 
 ->Tech Stack
 HTML
@@ -20,17 +11,16 @@ CSS
 JavaScript
 
 
-Usage                   
+->To use the quick tracker:
 
-Clone it to your directory and open the home page.
+Initiate Tracking: Start the timer when you begin a task by clicking on the "Start" button.
+Record Time: Once the task is completed, click on the "Stop" button to halt the timer. The duration of the task will be recorded.
+Add Description: Enter a brief description of the task in the provided field to detail what was accomplished during that time.
+View Analysis: Access the pie chart on the designated page to visualize how your time was distributed across different tasks throughout the week and monitor your progress.
+  
 
-Click on sign up and input anything you wish since its a dummy page and only needs the inputs to be filled.
-
-You will get access to the web app.
-
-Timesheet - In this section, you can add multiple time instances of a project.
-
-Timetracker - Lets you track time
-Dashboard - Data visualization and insights.
-
-Team Members:
+->Team Members:
+Vishakha Shelar
+Bijayalaxmi Biswal
+D Mounika
+Prabhakar kumar Singh

@@ -4,6 +4,10 @@ let minutes = 0;
 let hours = 0;
 let tasks = [];
 
+function goToFirstPage1(){
+    window.location.href="index.html";
+}
+
 function startTimer() {
     const taskInput = document.getElementById("taskInput").value.trim();
     if (taskInput === "") {

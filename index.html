@@ -14,8 +14,8 @@
     <header class="header">
         <h1 class="text">Quick Track</h1>
         <div>
-            <button>Track</button>
-            <button>Analytics</button>
+            <button onclick="goToFirstPage1()">Track</button>
+            <button onclick="goToSecondPage2()">Analytics</button>
         </div>
     </header>
 
@@ -27,7 +27,9 @@
         <div id="timer">00:00:00</div>
         <div id="taskList"></div>
     </div>
-
+    <script>function goToSecondPage2() {
+            window.location.href = "Analytics.html";
+        }</script>
 
     <script src="index.js"></script>
 </body>

@@ -117,3 +117,13 @@ button:active{
   font-size: 18px;
   color: #dc3545;
 }
+
+#piechart{
+  position: relative;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  text-align: center;
+}
